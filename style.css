@@ -5,15 +5,14 @@ div {
 }
 
 #board > div > div {
-    width: 16px;
-    height: 16px;
-    margin: 1px;
+    width: 10px;
+    height: 10px;
     background: dimgray;
     display: inline-block;
 }
 
 #board .row {
-    height: 18px;
+    height: 10px;
 }
 
 #board .row .snake {
