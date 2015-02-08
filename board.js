@@ -80,7 +80,7 @@ var Board = (function(){
                 }
             }
 
-            this.end = true;
+            // this.end = true;
         },
 
         markSnakes: function() {
