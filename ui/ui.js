@@ -50,10 +50,8 @@ var UI = (function() {
 
         setupWebSocket: function() {
             self = this;
-            var host = 'ws://' + location.hostname;
-            var port = ':1337';
-
-            self.ws = new WebSocket(host + port);
+            var host = location.origin.replace(/^http/, 'ws');
+            self.ws = new WebSocket(host);
 
             // ws.onopen = function() {
             //     ws.send('create');
