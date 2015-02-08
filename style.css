@@ -4,15 +4,20 @@ div {
     min-height: inherit;
 }
 
+#board {
+    border: 1px solid dimgrey;
+    display: inline-block;
+}
+
 #board > div > div {
     width: 10px;
     height: 10px;
-    background: dimgray;
+    margin: 1px;
     display: inline-block;
 }
 
 #board .row {
-    height: 10px;
+    height: 12px;
 }
 
 #board .row .snake {
