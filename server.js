@@ -17,7 +17,7 @@ wss.on('connection', function(ws) {
 
 app.use(express.static(__dirname + '/ui'));
 
-server = app.listen(3000, function () {
+server = app.listen((process.env.PORT || 3000), function () {
     var host = server.address().address;
     var port = server.address().port;
 
