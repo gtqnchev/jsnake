@@ -1,4 +1,6 @@
-var Board = (function(){
+var _ = require('underscore');
+
+module.exports = (function(){
     var cell = { free:  0,
                  snake: 1,
                  food:  2  };
@@ -27,19 +29,6 @@ var Board = (function(){
                 }
             }
         }
-    }
-
-    function findRandomFreeCell() {
-        var x = _.random(0, this.m - 1),
-            y = _.random(0, this.n - 1);
-
-        // TODO: this will block if there are no free cells
-        while(this.matrix[x][y] != this.cell.free) {
-            x = (x + 1) % this.m;
-            y = (y + 1) % this.n;
-        }
-
-        return { x: x, y: y };
     }
 
     return {
@@ -97,9 +86,26 @@ var Board = (function(){
                 .value();
         },
 
+        addSnake: function(snake) {
+            this.snakes.push(snake);
+        },
+
         generateFood: function() {
-            var freeCell = findRandomFreeCell.bind(this)();
+            var freeCell = this.findRandomFreeCell();
             this.matrix[freeCell.x][freeCell.y] = this.cell.food;
+        },
+
+        findRandomFreeCell: function() {
+            var x = _.random(0, this.m - 1),
+                y = _.random(0, this.n - 1);
+
+            // TODO: this will block if there are no free cells
+            while(this.matrix[x][y] != this.cell.free) {
+                x = (x + 1) % this.m;
+                y = (y + 1) % this.n;
+            }
+
+            return { x: x, y: y };
         }
     };
 })();

@@ -1,4 +1,6 @@
-var Snake = {
+var _ = require('underscore');
+
+module.exports = {
     directions: { up:    { dx: -1,  dy:  0 },
                   down:  { dx:  1,  dy:  0 },
                   left:  { dx:  0,  dy: -1 },
@@ -8,7 +10,7 @@ var Snake = {
         var self = Object.create(this);
 
         self.body      = [{ x: x, y: y }];
-        self.direction = direction;
+        self.direction = direction || _.sample(_.keys(this.directions));
         self.stomach   = 0;
 
         return self;
